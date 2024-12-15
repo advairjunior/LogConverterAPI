@@ -1,0 +1,6 @@
+@LogConverterAPI_HostAddress = http://localhost:5133
+
+GET {{LogConverterAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

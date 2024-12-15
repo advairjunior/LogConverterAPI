@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "LogConverterAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/logs/convertaLog": {
+      "post": {
+        "tags": [
+          "LogConverterAPI"
+        ],
+        "parameters": [
+          {
+            "name": "logData",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/obtenhaLogs": {
+      "get": {
+        "tags": [
+          "LogConverterAPI"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Log"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Log": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "formatoMinhaCDN": {
+            "type": "string",
+            "nullable": true
+          },
+          "formatoAgora": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
